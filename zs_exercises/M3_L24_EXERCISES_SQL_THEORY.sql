@@ -21,6 +21,7 @@ CREATE TABLE training_zs.products (
 	production_qty NUMERIC(10,2),
 	product_name VARCHAR(100),
 	product_code VARCHAR(10),
+	description TEXT,
 	manufacturing_date DATE
 );
 
@@ -42,19 +43,19 @@ DROP TABLE IF EXISTS training_zs.sales;
 --  product_id - typ całkowity INTEGER
 --  added_by - typ tekstowy (nielimitowana ilość znaków), z wartością domyślną 'admin'
 --- UWAGA: nie ma tego w materiałach wideo. Przeczytaj o atrybucie DEFAULT dla kolumny https://www.postgresql.org/docs/12/ddl-default.html 
---  korzystając z definiowania przy tworzeniu tabeli, po definicji kolumn, dodaje ograniczenie o nazwie sales_over_1k na polu sales_amount typu CHECK takie, że wartości w polu sales_amount muszą być większe od 1000
+--  korzystając z definiowania przy tworzeniu tabeli, po definicji kolumn, dodaj ograniczenie o nazwie sales_over_1k na polu sales_amount typu CHECK takie, że wartości w polu sales_amount muszą być większe od 1000
 
 CREATE TABLE training_zs.sales (
 	id INTEGER PRIMARY KEY,
-	sales_date TIMESTAMP,
+	sales_date TIMESTAMP NOT NULL,
 	sales_amount NUMERIC(38,2),
-	sales_qty NUMERIC(38,2),
+	sales_qty NUMERIC(10,2),
 	product_id INTEGER,
 	added_by TEXT DEFAULT 'admin',
 	CONSTRAINT sales_over_1k CHECK (sales_amount > 1000)
 ); 
 
--- 7. Korzystając z operacji ALTER utwórz powiązanie między tabelą sales a products, jako klucz obcy pomiędzy atrybutami product_id z tabeli sales i id z tabeli products.
+-- 7. Korzystając z operacji ALTER utwórz powiązanie między tabelą sales i products, jako klucz obcy pomiędzy atrybutami product_id z tabeli sales i id z tabeli products.
 -- Dodatkowo nadaj kluczowi obcemu opcję ON DELETE CASCADE
 
 ALTER TABLE training_zs.sales ADD CONSTRAINT sales_products_fk FOREIGN KEY (product_id) REFERENCES training_zs.products (id) ON DELETE CASCADE;
