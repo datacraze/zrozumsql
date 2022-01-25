@@ -1,0 +1,35 @@
+"Know something about everything and everything about something"
+
+SQL
+    -> Database Developer
+    -> Data Analyst
+    -> Data Engineer
+        -> Data Platform Engineer
+        -> Data Observability Engineer
+        -> ...
+    -> BI Developer
+        -> BI Implementation Consultant
+        -> ... 
+    -> Data Visualization Engineer
+
+    -> Q&A: https://datacraze.pl/sql-bez-tajemnic-pytania-rekrutacyjne/
+
+    -> Markus Winand: https://twitter.com/ModernSQL
+
+DATA ANALYTICS
+    -> https://techleaders.eu/#mentors
+
+DATA ENGINEERING
+    -> Bartosz Konieczny: https://twitter.com/waitingforcode
+    -> Jacek Laskowski: https://twitter.com/jaceklaskowski
+    -> Karolina Sowinska: https://www.youtube.com/channel/UCAxnMry1lETl47xQWABvH7g
+    -> Seattle Data Guy: https://www.youtube.com/c/SeattleDataGuy
+    -> Andreas Kretz: https://www.youtube.com/c/andreaskayy    
+    
+    -> dataengineers-group.slack.com
+
+DATA VISUALIZATION
+
+
+MACHINE LEARNING / AI
+    -> Data Workshop / Vladimir: https://twitter.com/slon1024
