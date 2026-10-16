@@ -1,24 +1,39 @@
-name: zrozumsql
+name: datacraze
+
+x-postgres: &postgres
+  image: pgvector/pgvector:pg18
+  restart: unless-stopped
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    POSTGRES_DB: postgres
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+    interval: 5s
+    timeout: 5s
+    retries: 10
 
 services:
-  postgres:
-    image: pgvector/pgvector:pg18
-    container_name: zrozumsql-postgres
-    restart: unless-stopped
+  # General purpose instance.
+  datacraze:
+    <<: *postgres
+    container_name: datacraze
     ports:
       - "127.0.0.1:5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
     volumes:
-      - pg_data:/var/lib/postgresql
+      - datacraze_data:/var/lib/postgresql
       - ./init:/docker-entrypoint-initdb.d:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+
+  # Instance for the Zrozum SQL course scripts.
+  zrozumsql:
+    <<: *postgres
+    container_name: zrozumsql
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - zrozumsql_data:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d:ro
 
 volumes:
-  pg_data:
+  datacraze_data:
+  zrozumsql_data:
