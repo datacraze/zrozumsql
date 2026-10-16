@@ -4,8 +4,8 @@ Two independent PostgreSQL 18 instances with [pgvector](https://github.com/pgvec
 
 | Container   | Purpose                 | Port   |
 |-------------|-------------------------|--------|
-| `datacraze` | general purpose         | `5432` |
-| `zrozumsql` | Zrozum SQL course work  | `5433` |
+| `datacraze` | general purpose         | `5433` |
+| `zrozumsql` | Zrozum SQL course work  | `5444` |
 
 ## Start
 
@@ -20,14 +20,14 @@ Connection details (local use only, ports are bound to `127.0.0.1`):
 | Setting  | Value                                      |
 |----------|--------------------------------------------|
 | Host     | `localhost`                                |
-| Port     | `5432` (`datacraze`) or `5433` (`zrozumsql`) |
+| Port     | `5433` (`datacraze`) or `5444` (`zrozumsql`) |
 | User     | `postgres`                                 |
 | Password | `postgres`                                 |
 | Database | `postgres`                                 |
 
 ```bash
-psql postgresql://postgres:postgres@localhost:5432/postgres   # datacraze
-psql postgresql://postgres:postgres@localhost:5433/postgres   # zrozumsql
+psql postgresql://postgres:postgres@localhost:5433/postgres   # datacraze
+psql postgresql://postgres:postgres@localhost:5444/postgres   # zrozumsql
 # or without a local psql client
 docker exec -it zrozumsql psql -U postgres
 ```
