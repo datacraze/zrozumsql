@@ -10,7 +10,7 @@ The whole course (in Polish) is free on YouTube:
 |---|---|
 | `zs_slides/Mxx/` | Lesson slides (PDF), named `ZS_M<module>L<lesson>_*.pdf` |
 | `zs_m_<n>_scripts/` | SQL scripts shown in the lessons of module `n` |
-| `zs_exercises/` | Module exercises with solutions |
+| `zs_exercises/` | Module exercises: task PDFs (`*_TASKS_*.pdf`) and solutions (`*.sql`) |
 | `zs_bonus_scripts/` | SQL scripts from the bonus videos |
 ## Local database
 
