@@ -11,6 +11,7 @@ The whole course (in Polish) is free on YouTube:
 | `zs_slides/Mxx/` | Lesson slides (PDF), named `ZS_M<module>L<lesson>_*.pdf` |
 | `zs_m_<n>_scripts/` | SQL scripts shown in the lessons of module `n` |
 | `zs_exercises/` | Module exercises with solutions |
+| `zs_bonus_scripts/` | SQL scripts from the bonus videos |
 ## Local database
 
 Local PostgreSQL 18 with pgvector (`datacraze` on port 5433, `zrozumsql` on port 5444) lives in [`docker/`](docker/README.md):
